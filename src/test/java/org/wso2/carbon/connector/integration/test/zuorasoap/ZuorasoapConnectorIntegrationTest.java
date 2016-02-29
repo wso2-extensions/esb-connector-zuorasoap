@@ -17,17 +17,16 @@
  */
 package org.wso2.carbon.connector.integration.test.zuorasoap;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.util.AXIOMUtil;
 import org.apache.axiom.soap.SOAPEnvelope;
-import org.apache.axis2.AxisFault;
+import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import org.wso2.connector.integration.test.base.ConnectorIntegrationTestBase;
-import org.testng.Assert;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class ZuorasoapConnectorIntegrationTest extends
         ConnectorIntegrationTestBase {
@@ -46,7 +45,7 @@ public class ZuorasoapConnectorIntegrationTest extends
     @BeforeClass(alwaysRun = true)
     public void setEnvironment() throws Exception {
 
-        init("zuorasoap-connector-1.0.0");
+        init("zuorasoap-connector-1.0.1-SNAPSHOT");
 
         apiEndPoint = connectorProperties.getProperty("apiUrl");
 

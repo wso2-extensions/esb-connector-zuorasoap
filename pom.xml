@@ -16,18 +16,18 @@
    specific language governing permissions and limitations
    under the License.
 -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.wso2.carbon.connector</groupId>
     <artifactId>org.wso2.carbon.connector.${connector.name}</artifactId>
-    <version>${connector.version}</version>
+    <version>1.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>WSO2 Carbon - Mediation Library Connector For ${connector.name}</name>
     <url>http://wso2.org</url>
     <properties>
         <connector.name>zuorasoap</connector.name>
-        <connector.version>1.0.0</connector.version>
         <esb.version>4.9.0</esb.version>
         <test.framework.version>4.2.0</test.framework.version>
         <carbon.kernel.version>4.4.1</carbon.kernel.version>
@@ -85,6 +85,14 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+    <scm>
+        <connection>scm:git:https://github.com/wso2-extensions/esb-connector-zourasoap.git
+        </connection>
+        <url>https://github.com/wso2-extensions/esb-connector-zourasoap.git</url>
+        <developerConnection>scm:git:https://github.com/wso2-extensions/esb-connector-zourasoap
+        </developerConnection>
+        <tag>HEAD</tag>
+    </scm>
     <build>
         <plugins>
             <plugin>
@@ -128,7 +136,8 @@
                         <configuration>
                             <outputDirectory>${project.build.directory}/emma</outputDirectory>
                             <includeTypes>jar</includeTypes>
-                            <includeArtifactIds>emma,org.wso2.carbon.automation.core</includeArtifactIds>
+                            <includeArtifactIds>emma,org.wso2.carbon.automation.core
+                            </includeArtifactIds>
                         </configuration>
                     </execution>
                 </executions>
@@ -144,7 +153,7 @@
                             <goal>attached</goal>
                         </goals>
                         <configuration>
-                            <finalName>${connector.name}-connector-${connector.version}</finalName>
+                            <finalName>${connector.name}-connector-${version}</finalName>
                             <appendAssemblyId>false</appendAssemblyId>
                             <filters>
                                 <filter>${basedir}/src/main/assembly/filter.properties</filter>
@@ -175,7 +184,8 @@
                                 ${basedir}/src/test/resources/
                             </value>
                             <properties>
-                                <test.framework.version>${carbon.platform.version}</test.framework.version>
+                                <test.framework.version>${carbon.platform.version}
+                                </test.framework.version>
                             </properties>
                         </property>
                         <property>
