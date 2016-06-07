@@ -38,15 +38,23 @@
                 <arg expression="$func:zobjects"/>
             </args>
         </payloadFactory>
-
         <class name="org.wso2.carbon.connector.zuorasoap.SetupGenerateZobjects"/>
         <header name="To" expression="$ctx:uri.var.zuorasoap.apiUrl"/>
-
-        <call>
-            <endpoint>
-                <default format="soap11"/>
-            </endpoint>
-        </call>
-
+        <filter source="$ctx:zuorasoapBlocking" regex="true">
+            <then>
+                <call blocking="true">
+                    <endpoint>
+                        <default format="soap11"/>
+                    </endpoint>
+                </call>
+            </then>
+            <else>
+                <call>
+                    <endpoint>
+                        <default format="soap11"/>
+                    </endpoint>
+                </call>
+            </else>
+        </filter>
     </sequence>
 </template>

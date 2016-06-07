@@ -20,10 +20,12 @@
     <parameter name="apiUrl" description="The base endpoint URL of Zuora SOAP API."/>
     <parameter name="username" description="The account username of Zuora."/>
     <parameter name="password" description="The account password of the Zuora."/>
+    <parameter name="blocking" description="Set to true to perform the blocking invocations to Zuora."/>
     <sequence>
         <property name="uri.var.zuorasoap.apiUrl" expression="$func:apiUrl"/>
         <property name="uri.var.zuorasoap.username" expression="$func:username"/>
         <property name="uri.var.zuorasoap.password" expression="$func:password"/>
+        <property name="zuorasoapBlocking" expression="$func:blocking"/>
         <payloadFactory>
             <format>
                 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
@@ -42,15 +44,12 @@
                 <arg expression="$func:password"/>
             </args>
         </payloadFactory>
-
         <header name="To" expression="$ctx:uri.var.zuorasoap.apiUrl"/>
-
         <call>
             <endpoint>
                 <default format="soap11"/>
             </endpoint>
         </call>
-
         <property expression="//ns:loginResponse/ns:result/ns:Session/text()"
                   name="zuorasoap.sessionId" type="STRING"
                   xmlns:ns="http://api.zuora.com/"/>
