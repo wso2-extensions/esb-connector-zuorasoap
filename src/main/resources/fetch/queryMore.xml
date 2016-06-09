@@ -48,21 +48,28 @@
                 <arg expression="$ctx:zuorasoap.query.queryLocator"/>
             </args>
         </payloadFactory>
-
         <header name="To" expression="$ctx:uri.var.zuorasoap.apiUrl"/>
-
-        <call>
-            <endpoint>
-                <default format="soap11"/>
-            </endpoint>
-        </call>
-
+        <filter source="$ctx:zuorasoapBlocking" regex="true">
+            <then>
+                <call blocking="true">
+                    <endpoint>
+                        <default format="soap11"/>
+                    </endpoint>
+                </call>
+            </then>
+            <else>
+                <call>
+                    <endpoint>
+                        <default format="soap11"/>
+                    </endpoint>
+                </call>
+            </else>
+        </filter>
         <property expression="//ns:queryResponse/ns:result/ns:Session/text()"
                   name="zuorasoap.query.done" type="STRING"
                   xmlns:ns="http://api.zuora.com/"/>
         <property expression="//ns:queryResponse/ns:result/ns:Session/text()"
                   name="zuorasoap.query.queryLocator" type="STRING"
                   xmlns:ns="http://api.zuora.com/"/>
-
     </sequence>
 </template>
