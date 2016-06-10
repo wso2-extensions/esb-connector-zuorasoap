@@ -45,7 +45,7 @@ public class ZuorasoapConnectorIntegrationTest extends
     @BeforeClass(alwaysRun = true)
     public void setEnvironment() throws Exception {
 
-        init("zuorasoap-connector-1.0.1-SNAPSHOT");
+        init("zuorasoap-connector-1.0.1");
 
         apiEndPoint = connectorProperties.getProperty("apiUrl");
 
