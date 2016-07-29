@@ -9,13 +9,13 @@ Pre-requisites:
 
 Tested Platform:
  - UBUNTU 14.04
- - WSO2 ESB 5.0.0-M1
+ - WSO2 ESB 5.0.0-SNAPSHOT
 
 
 
 Steps to follow in setting integration test.
 
- 1. Download ESB WSO2 ESB 5.0.0-M1 from official website.
+ 1. Download ESB WSO2 ESB 5.0.0 from official website.
 
  2. Create a Zuora account.
 

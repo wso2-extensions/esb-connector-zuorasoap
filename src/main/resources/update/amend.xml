@@ -38,6 +38,7 @@
                 <arg expression="$func:zobjects"/>
             </args>
         </payloadFactory>
+        <property value="true" name="FORCE_ERROR_ON_SOAP_FAULT"/>
         <header name="To" expression="$ctx:uri.var.zuorasoap.apiUrl"/>
         <filter source="$ctx:zuorasoapBlocking" regex="true">
             <then>

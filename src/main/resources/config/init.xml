@@ -44,12 +44,25 @@
                 <arg expression="$func:password"/>
             </args>
         </payloadFactory>
+        <property name="FORCE_ERROR_ON_SOAP_FAULT" value="true"/>
+        <property name="messageType" scope="axis2" value="text/xml"/>
         <header name="To" expression="$ctx:uri.var.zuorasoap.apiUrl"/>
-        <call>
-            <endpoint>
-                <default format="soap11"/>
-            </endpoint>
-        </call>
+        <filter source="$ctx:zuorasoapBlocking" regex="true">
+            <then>
+                <call blocking="true">
+                    <endpoint>
+                        <default format="soap11"/>
+                    </endpoint>
+                </call>
+            </then>
+            <else>
+                <call>
+                    <endpoint>
+                        <default format="soap11"/>
+                    </endpoint>
+                </call>
+            </else>
+        </filter>
         <property expression="//ns:loginResponse/ns:result/ns:Session/text()"
                   name="zuorasoap.sessionId" type="STRING"
                   xmlns:ns="http://api.zuora.com/"/>
