@@ -1,0 +1,21 @@
+{
+    "name": "Zuora SOAP",
+    "owner": "WSO2",
+    "category": "Billing and Accounting",
+    "documentationUrl": "https://docs.wso2.com/display/ESBCONNECTORS/Zuora+SOAP+Connector",
+    "description": "The Zuora SOAP connector allows you to access the Zuora SOAP API through WSO2 ESB. Zuora's cloud technologies help companies build subscription business models by establishing, cultivating and monetizing recurring customer relationships.",
+    "status": "Active",
+    "labels": [
+        "connector"
+    ],
+    "releases": [
+        {
+            "tagName": "v1.0.2",
+            "products": [
+                "ESB 5.0.0",
+                "ESB 4.9.0"
+            ],
+            "isHidden": false
+        }
+    ]
+}
